@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-useless-catch */
 import React, { createContext, useState, useContext, useEffect } from "react";
@@ -38,7 +39,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch("http://localhost:3000/auth/login", {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -73,7 +74,7 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (username, email, password) => {
     try {
-      const response = await fetch("http://localhost:3000/auth/signup", {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),
@@ -102,7 +103,7 @@ export const AuthProvider = ({ children }) => {
     try {
       // Call backend logout if token exists
       if (token) {
-        await fetch("http://localhost:3000/auth/logout", {
+        await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/logout`, {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,

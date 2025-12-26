@@ -69,7 +69,7 @@ const Logs = ({ client, refreshTrigger }) => {
     if (!window.confirm("Are you sure you want to delete ALL logs? This action cannot be undone.")) return;
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/calculator`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`, // Add token for admin check

@@ -15,7 +15,7 @@ export const createApiClient = (getToken) => {
           headers['Authorization'] = `Bearer ${token}`;
         }
 
-        const response = await fetch(`${API_BASE_URL}`, {
+        const response = await fetch(`${API_BASE_URL}/calculator`, {
           method: 'POST',
           headers,
           body: JSON.stringify(data),
@@ -42,7 +42,7 @@ export const createApiClient = (getToken) => {
           headers['Authorization'] = `Bearer ${token}`;
         }
 
-        const response = await fetch(`${API_BASE_URL}`, {
+        const response = await fetch(`${API_BASE_URL}/calculator`, {
           headers
         });
 
@@ -75,7 +75,7 @@ export const createApiClient = (getToken) => {
           headers['Authorization'] = `Bearer ${token}`;
         }
 
-        const response = await fetch(`${API_BASE_URL}/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/calculator/${id}`, {
           method: 'DELETE',
           headers,
         });
